@@ -1,0 +1,26 @@
+<section class="game-container">
+  <h2>{{game.name}}</h2>
+  <button class="btn btn-submit" (click)="onEdit()" style="margin: 10px 0;">Editar</button>
+  <figure class="game-image">
+    <img [src]="game.artbox" [alt]="game.name">
+  </figure>
+  <div class="game-data">
+    <p class="game-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores dignissimos
+      architecto totam, rerum culpa in, quod aliquam illum illo nobis odio sapiente
+      quaerat, suscipit similique. Quidem ipsam iusto doloribus quisquam!</p>
+    <dl class="game-summary">
+      <dt>Ano de Lançamento</dt>
+      <dd>Sem data</dd>
+      <dt>Estilos</dt>
+      <dd>Indefinido</dd>
+      <dt>Desenvolvedora</dt>
+      <dd>Desconhecida</dd>
+      <dt>Publisher</dt>
+      <dd>Desconhecida</dd>
+      <dt>Plataforma</dt>
+      <dd>{{game.plataform}}</dd>
+      <dt>Metacritic</dt>
+      <dd>N/A</dd>
+    </dl>
+  </div>
+</section>

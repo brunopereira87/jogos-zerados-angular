@@ -1,0 +1,47 @@
+<section>
+  <div *ngIf="errorMessage" class="alert alert-error">
+    <p>{{errorMessage}}</p>
+  </div>
+  <bgd-loading-spinner *ngIf="isLoading"></bgd-loading-spinner>
+  <form *ngIf="!isLoading && !errorMessage" #authForm="ngForm" (submit)="onSubmit(authForm)">
+    <div class="form-group" *ngIf="isSignUpMode">
+      <label for="name">Nome:</label>
+      <input type="text" class="form-control" required ngModel name="name"
+        id="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" class="form-control" #email="ngModel" required email ngModel name="email" id="email">
+      <div class="validate-alert" *ngIf="email.invalid && (email.touched || email.dirty)">
+        <p *ngIf="email.errors.required">O campo email deve estar preeenchido</p>
+        <p *ngIf="email.errors.email">Por favor, insira um email válido</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha*</label>
+      <input type="password" class="form-control" #password="ngModel" required minlength="6" ngModel
+        name="password" id="password">
+      <div class="validate-alert" *ngIf="password.invalid && (password.touched || password.dirty)">
+        <p *ngIf="password.errors.required">O campo senha deve estar preeenchido</p>
+        <p *ngIf="password.errors.minlength">O campo senha deve ter pelo menos seis caracteres</p>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="isSignUpMode">
+      <label for="passwordConfirm">Confirmar Senha*</label>
+      <input type="password" required bdgConfirmEqualValidator="password"
+        #passwordConfirm="ngModel" class="form-control" ngModel name="passwordConfirm"
+        id="passwordConfirm">
+        <div class="validate-alert" *ngIf="passwordConfirm.invalid && (passwordConfirm.touched
+        || passwordConfirm.dirty)">
+          <p *ngIf="passwordConfirm.errors?.required">O campo confirmar senha deve estar preeenchido</p>
+          <p *ngIf="passwordConfirm.errors?.notEqual && !passwordConfirm.errors?.required">
+            As duas senhas devem ser iguais</p>
+        </div>
+    </div>
+    <button class="btn btn-submit" [disabled]="authForm.invalid">
+      {{isSignUpMode ? 'Cadastrar' : 'Login'}}</button>
+    <button type="button" class="btn btn-submit"(click)="isSignUpMode = !isSignUpMode">
+      Alternar para {{!isSignUpMode ? 'cadastrar' : 'login'}}
+    </button>
+  </form>
+</section>

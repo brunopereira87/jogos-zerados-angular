@@ -1,0 +1,17 @@
+<!-- INÍCIO DO CONTEÚDO -->
+<section class="home">
+    <bdg-game-featured></bdg-game-featured>
+    <section class="most-played">
+      <h2 class="title">Mais jogados no momento</h2>
+      <!-- <div class="games-list" v-if="games.length > 0">
+        <GameCard v-for="game in games" :key="game._id" :game="game" />
+      </div> -->
+    </section>
+    <section class="most-rated">
+      <h2 class="title">Mais bem avaliados</h2>
+      <div class="games-list">
+        <bdg-game-card *ngFor="let game of games" [game]="game"></bdg-game-card>
+      </div>
+    </section>
+  </section>
+<!-- FIM DO CONTEÚDO -->

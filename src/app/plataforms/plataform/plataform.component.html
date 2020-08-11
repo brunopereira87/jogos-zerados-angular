@@ -1,0 +1,18 @@
+<section class="plataform-container">
+  <h2>{{plataform.name}}</h2>
+  <button class="btn btn-submit" (click)="onEdit()" style="margin: 10px 0;">Editar</button>
+  <figure class="plataform-image">
+    <img [src]="image_url + plataform.logo" [alt]="plataform.name">
+  </figure>
+  <div class="plataform-data">
+    <p class="plataform-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores dignissimos
+      architecto totam, rerum culpa in, quod aliquam illum illo nobis odio sapiente
+      quaerat, suscipit similique. Quidem ipsam iusto doloribus quisquam!</p>
+    <dl class="plataform-summary">
+      <dt>Ano de Lançamento</dt>
+      <dd>Sem data</dd>
+      <dt>Empresa</dt>
+      <dd>{{plataform.company}}</dd>
+    </dl>
+  </div>
+</section>

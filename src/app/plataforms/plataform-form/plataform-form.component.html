@@ -1,0 +1,35 @@
+<section class="plataform-form-container">
+  <h2 class="section_title">Nova plataforma</h2>
+  <div class="image-preview">
+    <!-- <img [src]="logo.value ? (image_url + logo.value) : 'http://localhost:4200/assets/logo.svg'"
+      alt="Plataform Example"> -->
+    <img *ngIf="!loadedImage" [src]="preview ?
+      image_url+preview : 'http://localhost:4200/assets/logo.svg'"
+      alt="Plataform Example">
+      <img *ngIf="loadedImage" [src]="preview"
+      alt="Plataform Example">
+  </div>
+  <form *ngIf="plataformForm" id="plataform-form" [formGroup]="plataformForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" formControlName="name"  class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="logo">Logo(url)</label>
+      <input type="file" name="filehidden" (change)="onChangeLogo($event)"
+        class="form-control"/>
+        <input type="hidden"  formControlName="logo"/>
+        <p *ngIf="invalidImage" class="validate-alert">Tipo de imagem inváldio!</p>
+    </div>
+    <div class="form-group">
+      <label for="artbox">Empresa</label>
+      <input type="text" formControlName="company"  class="form-control"/>
+    </div>
+    <!-- <div class="form-group">
+      <label for="slug">Slug</label>
+      <input type="text" formControlName="slug"  class="form-control"/>
+    </div> -->
+    <button class="btn btn-submit" [disabled]="plataformForm.invalid || invalidImage"
+    >{{editMode ? 'Editar' : 'Adicionar '}}</button>
+  </form>
+</section>

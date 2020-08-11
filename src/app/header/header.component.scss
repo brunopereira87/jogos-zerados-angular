@@ -1,0 +1,39 @@
+@import '_variables-mixins';
+h1 {
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+header {
+  @include bgcolor("primary");
+  @include textcolor("light");
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  padding: 10px 0;
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    display: flex;
+    margin-left: 50px;
+  }
+  li {
+    margin-right: 30px;
+  }
+  a {
+    @include textcolor("light");
+    transition: all 0.3s;
+    &:hover {
+      text-decoration: underline;
+      @include textcolor("warning");
+    }
+  }
+  .nav-right li{
+    margin-right: 0;
+  }
+}

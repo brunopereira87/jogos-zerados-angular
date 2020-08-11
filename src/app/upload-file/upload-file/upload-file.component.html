@@ -1,0 +1,9 @@
+<section>
+  <h2 class="section-title">File Upload</h2>
+  <div class="form-group">
+    <input class="form-control" multiple
+      type="file" name="image" id="image" (change)="onChange($event)">
+    <button class="btn btn-submit" type="button" (click)="upload()"
+      [disabled]="!files">Upload</button>
+  </div>
+</section>

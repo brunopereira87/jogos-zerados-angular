@@ -1,0 +1,17 @@
+.plataform-form-container{
+  display: grid;
+  grid-template-areas: "image title"
+              "image form";
+  grid-column-gap: 10px;
+  .section_title{
+    grid-area: title;
+  }
+
+  .image-preview {
+    grid-area: image;
+  }
+
+  #plataform-form{
+    grid-area: form;
+  }
+}

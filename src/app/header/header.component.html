@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+
+    <nav class="menu">
+      <a [routerLink]="['./']">
+        <h1>
+        <img src="../../assets/logo-white.svg" alt="Logo" />
+        </h1>
+      </a>
+      <ul>
+        <li><a [routerLink]="['/']">Jogos</a></li>
+        <li><a [routerLink]="['/plataforms']">Plataformas</a></li>
+        <li><a [routerLink]="['/games/add']">Novo Jogo</a></li>
+        <li><a [routerLink]="['/plataforms/add']">Nova Plataforma</a></li>
+        <li><a [routerLink]="['/upload']">Upload</a></li>
+        <li><a [routerLink]="['/test-file']">Test File</a></li>
+        <!-- <li><a [routerLink]="['./playstation-4']">Xbox One</a></li>
+        <li><a [routerLink]="['./xbox-one']">PC</a></li>
+        <li><a [routerLink]="['./stadia']">Stadia</a></li>
+        <li><a [routerLink]="['./3ds']">3DS</a></li>
+        <li><a [routerLink]="['./plataforms']">Outros</a></li> -->
+      </ul>
+      <ul class="nav-right">
+        <li *ngIf="!logged"><a routerLink="/auth">Login/Cadastro</a></li>
+        <li *ngIf="logged"><a style="cursor: pointer;">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

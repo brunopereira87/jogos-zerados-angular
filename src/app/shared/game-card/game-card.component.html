@@ -1,0 +1,9 @@
+<div class="game-card">
+  <a [routerLink]="['games',game._id]">
+    <figure>
+      <img [src]="image_url + game.artbox" [alt]="game.name" />
+    </figure>
+
+    <p class="title">{{game.name}}</p>
+  </a>
+</div>

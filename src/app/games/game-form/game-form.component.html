@@ -1,0 +1,38 @@
+<section class="game-form-container">
+  <h2 class="section_title">{{editMode ? 'Atualizar' : 'Novo' }} jogo</h2>
+  <div class="image-preview">
+    <img [src]="preview"
+      alt="Game Example">
+  </div>
+  <form id="game-form" #gameForm="ngForm" (submit)="onSubmit(gameForm)">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" [ngModel]="game.name" #name="ngModel" required name="name" minlength="3"
+      class="form-control"/>
+      <div class="validate-alert" *ngIf="name.invalid && name.touched">
+        <p *ngIf="name.errors.required" >Por favor, digite o nome</p>
+        <p *ngIf="name.errors.minlength">O nome deve ter pelo menos 3 caracteres</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="artbox">Artbox(url)</label>
+      <input type="file" class="form-control" name="artbox_input" (change)="onChangeArtBox($event)"/>
+      <input type="hidden" [ngModel]="game.artbox" name="artbox" />
+      <p *ngIf="invalidImage" class="validate-alert">Tipo de imagem inváldio!</p>
+    </div>
+    <div class="form-group">
+      <label for="plataform">Plataforma</label>
+      <select name="plataform"[ngModel]="game.plataform._id" class="form-control"
+        #plataform required>
+        <option value="">Escolha uma plataforma...</option>
+        <option [selected]="game.plataform._id === plataform._id" *ngFor="let plataform of plataforms" [value]="plataform._id">
+          {{plataform.name}}
+        </option>
+      </select>
+
+    </div>
+
+    <button class="btn btn-submit"  [disabled]="gameForm.invalid" >
+      {{editMode ? 'Atualizar' : 'Adicionar'}}</button>
+  </form>
+</section>

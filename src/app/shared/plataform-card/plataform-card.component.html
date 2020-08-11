@@ -1,0 +1,14 @@
+<a class="link-place-info" [routerLink]="['/plataforms',plataform.slug]">
+  <div class="place-info-box">
+    <span class="place-info-box-icon"><img [src]="image_url + plataform.logo" /></span>
+
+    <div class="place-info-box-content">
+      <p class="place-info-box-text-container">
+        <span class="place-info-box-text">{{plataform.name}}</span>
+      </p>
+      <p class="place-info-box-detail">{{plataform.company}}</p>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+  <!-- /.info-box -->
+</a>

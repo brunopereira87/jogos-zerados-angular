@@ -1,0 +1,17 @@
+@import '_variables-mixins';
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  margin-top: $section_margin;
+
+  .title {
+    grid-column: 1 / -1;
+    @include textcolor("light");
+    text-align: left;
+    margin-bottom: $title_margin;
+  }
+}
+.most-rated {
+  margin-top: 30px;
+}
